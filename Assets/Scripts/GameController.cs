@@ -15,6 +15,7 @@ public class GameController : MonoBehaviour
     public string levelName;
     [SerializeField] private GameObject _panel;
     [SerializeField] private Text _statusInfo;
+    [SerializeField] private GameObject _camera;
 
     private bool _isGameEnded = false;
 
@@ -34,6 +35,7 @@ public class GameController : MonoBehaviour
         TapCollider.enabled = false;
         SlingShooter.InitiateBird(Birds[0]);
         _shotBird = Birds[0];
+        _camera.GetComponent<CameraMover>().SetViewArea(_shotBird.transform);
 
     }
 
@@ -60,11 +62,12 @@ public class GameController : MonoBehaviour
         {
             SlingShooter.InitiateBird(Birds[0]);
             _shotBird = Birds[0];
+            _camera.GetComponent<CameraMover>().SetViewArea(_shotBird.transform);
         }
         else
         {
             _isGameEnded = true;
-            
+
         }
     }
 
