@@ -35,7 +35,7 @@ public class GameController : MonoBehaviour
         TapCollider.enabled = false;
         SlingShooter.InitiateBird(Birds[0]);
         _shotBird = Birds[0];
-        _camera.GetComponent<CameraMover>().SetViewArea(_shotBird.transform);
+        _camera.GetComponent<CameraMover>().SetViewArea(_shotBird.gameObject);
 
     }
 
@@ -62,7 +62,7 @@ public class GameController : MonoBehaviour
         {
             SlingShooter.InitiateBird(Birds[0]);
             _shotBird = Birds[0];
-            _camera.GetComponent<CameraMover>().SetViewArea(_shotBird.transform);
+            _camera.GetComponent<CameraMover>().SetViewArea(_shotBird.gameObject);
         }
         else
         {
