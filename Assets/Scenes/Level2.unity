@@ -671,6 +671,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4431414378337451170, guid: 3f60551be8ec56543829c00b8301f99b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4431414378566978390, guid: 3f60551be8ec56543829c00b8301f99b,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -692,6 +697,11 @@ PrefabInstance:
       value: 0.65
       objectReference: {fileID: 0}
     - target: {fileID: 4431414379313203922, guid: 3f60551be8ec56543829c00b8301f99b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431414379424507911, guid: 3f60551be8ec56543829c00b8301f99b,
         type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -1744,6 +1754,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1817,6 +1828,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a45b3d13be58f36e92d9b1c7382a41f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  off: {x: 0, y: 0, z: 0}
+  smoothness: 0.175
 --- !u!1 &527975599
 GameObject:
   m_ObjectHideFlags: 0
@@ -3986,6 +4011,7 @@ MonoBehaviour:
   levelName: Main
   _panel: {fileID: 1705334192}
   _statusInfo: {fileID: 102389771}
+  _camera: {fileID: 519420028}
 --- !u!4 &1458243656
 Transform:
   m_ObjectHideFlags: 0
