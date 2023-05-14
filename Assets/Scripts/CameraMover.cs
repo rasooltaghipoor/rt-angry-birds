@@ -13,7 +13,7 @@ public class CameraMover : MonoBehaviour
     [Range(0, 3)]
     private float smoothness = 0.175f;
     private Vector3 velocity = Vector3.zero;
-    private bool _canMove;
+    private bool _canMove, _isNewBird;
 
     private void Start()
     {
@@ -22,12 +22,17 @@ public class CameraMover : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (viewArea.transform.position.x > transform.position.x && _canMove)
+        if (viewArea.transform.position.x > transform.position.x)
         {
-            Vector3 desiredPosition = new Vector3(viewArea.transform.position.x + off.x, transform.position.y, transform.position.z);
-            transform.position = Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, smoothness);
+            if (_isNewBird)
+                _isNewBird = false;
+            if (_canMove)
+            {
+                Vector3 desiredPosition = new Vector3(viewArea.transform.position.x + off.x, transform.position.y, transform.position.z);
+                transform.position = Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, smoothness);
+            }
         }
-        else
+        else if (_isNewBird)
         {
             transform.position = Vector3.SmoothDamp(transform.position, _initialPosition, ref velocity, smoothness);
         }
@@ -42,5 +47,6 @@ public class CameraMover : MonoBehaviour
     {
         this.viewArea = viewArea;
         _canMove = true;
+        _isNewBird = true;
     }
 }
